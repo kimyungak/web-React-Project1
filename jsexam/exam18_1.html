@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>선언적 함수</title>
+<script>
+	function kindShape(){
+		document.write("**도형의 넓이**<br>");
+	} 
+	function circleSize(r){
+		document.write("원의 넓이 = " + (r*r*3.14) +"<br>");
+	}
+	function getSquareSize(bottom, height){
+	   return bottom * height;      
+	}
+	function printData(p1, p2, p3){
+		alert(p1);
+		document.write(p2);
+		console.log(p3); //도구 더보기>개발자 도구>console에 출력
+	}
+	function printAll(){
+		document.write("<h1>"+arguments.length+"</h1>");
+		for(var i=0; i<arguments.length; i++)
+			console.log(arguments[i]);	
+		console.log("-----------------------");
+	}
+	function hof(p){
+		if(typeof p == 'function'){
+			p(" ㅋ ㅋ ㅋ ");
+		} else {
+			console.log(p);
+		}
+	}
+	function myf(msg) {
+		document.write("<h2>"+msg+"</h2>");
+		return true;
+	}
+	printAll();
+	printAll(1,2,3);
+	printAll(100,'abc', true, 3.14);
+	hof(100);
+	hof('가나다');
+	hof([10,20,30]);
+	hof(myf);
+	hof(function(msg){
+		document.write("<hr> 익명함수 전달: "+msg);
+	}) //1회용 함수
+	var ary = [4,20,7,15,30]
+	document.write("<h2>"+ary+"</h2>");
+	document.write("<h2>"+ary.sort()+"</h2>"); //배열값을 문자열로 치환해서 오름차순
+	document.write("<h2>"+ary.sort(function (a,b){return a-b;})+"</h2>");
+	//hof(myf());
+	//kindShape();
+	//circleSize(10);
+	//document.write("사각형의 넓이 = " + getSquareSize(4,5)+ "<br>");
+	//printData();
+</script>
+</head>
+<body>
+
+</body>
+</html>
